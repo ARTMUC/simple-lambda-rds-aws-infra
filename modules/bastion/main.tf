@@ -41,7 +41,7 @@ resource "aws_iam_instance_profile" "bastion_profile" {
 }
 
 resource "aws_instance" "bastion" {
-  ami           = data.aws_ami.amazon_linux
+  ami           = data.aws_ami.amazon_linux.id
   instance_type = var.instance_type
   vpc_security_group_ids = [var.security_group_id]
   subnet_id = var.private_subnet_id
